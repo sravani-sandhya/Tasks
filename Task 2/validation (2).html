@@ -1,0 +1,165 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Form</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap" rel="stylesheet">
+    <style type="text/css">
+       
+.la{
+    font-family: 'Times New Roman', cursive; 
+    font-size: 30px; 
+    text-decoration-color:#FAD7A0 ;
+   }
+ </style>
+
+<script type="text/javascript">
+  alert(fontcolor("red"));
+    
+function validate() {
+    
+        var fname=document.fm.fname.value;
+        if(fname.length < 5 || fname.length>20)
+        {
+        alert("First Name field Minimum length should be 5 and maximum length should be 20");
+        //document.registrationForm.n1.focus();
+        }
+         var lname=document.fm.lname.value;
+        if(lname.length < 5 || fname.length>20)
+        {
+         alert("Last Name field Minimum length should be 5 and maximum length should be 20");
+        //document.registrationForm.n1.focus();
+        }
+        var mail=document.fm.mail.value;
+        if(mail.length<1)
+        {
+          alert("kindly fill the E-Mail");
+         // document.registrationForm.n1.focus();
+        }
+        var pno=document.fm.pno.value;
+        if(pno.length<1 || pno.length<10 )
+        {
+          alert("please enter the valid Phone Number");
+         // document.registrationForm.n1.focus();
+        }
+        if(document.getElementById("ra1").checked == false && document.getElementById("ra2").checked == false)
+        {
+           alert("kindly fill the Create account"); 
+        }
+        if((document.getElementById("d1").checked == false && document.getElementById("d2").checked == false) && (document.getElementById("d3").checked == false) )
+        {
+            alert("kindly fill the Preferred domain");
+        }
+        if(document.getElementById("con").checked == false)
+        {
+           alert("kindly fill the Country"); 
+        }
+        if((document.getElementById("d1").checked == false && document.getElementById("d2").checked == false) && (document.getElementById("d3").checked == true ))
+        {
+            alert("kindly fill at least two domain");
+        }else if((document.getElementById("d1").checked == false && document.getElementById("d3").checked == false) && (document.getElementById("d2").checked == true ))
+        {
+            alert("kindly fill at least two domain");
+        }else if((document.getElementById("d2").checked == false && document.getElementById("d3").checked == false) && (document.getElementById("d1").checked == true ))
+        {
+            alert("kindly fill at least two domain");
+        }
+        
+        
+        var m=document.fm.mail.value;
+       if ( /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(m))
+  {
+    return (true)
+  }
+    alert("You have entered an invalid email address!")
+    return (false)
+}
+
+
+    function reset(){
+
+        document.fm.fname.value="";
+        document.fm.lname.value="";
+        document.fm.email.value="";
+        document.fm.pno.value="";
+        document.fm.accoun.value="";
+        document.fm.domain.value="";
+        document.fm.country.value="";
+
+        var input=document.querySelectorAll('.check');
+    
+        for(var i=0;i<input.length;i++){
+            input[i].checked=false;
+        }
+    }
+
+</script>
+</head>
+<body 
+    
+
+
+
+<div   >
+ 
+    <form method="post" name="fm" id="myForm" >
+       
+    <table cellpadding="15" align="center" class="tab" >
+        <tr>
+        <td><label class="la">First Name: </label></td>
+          <td>  <input  type="text" name="fname"  /></td>
+          </tr>
+           <tr>
+        <td><label class="la" >Last Name : </label></td>
+             <td> <input type="text" name="lname"  /></td>
+              </tr>
+         <tr>
+        <td><label class="la" >E-mail : </label></td>
+           <td>  <input type="text" name="mail" id="n1" /></td> 
+             </tr>
+             <tr>
+        <td><label class="la" >Phone Number : </label></td>
+            <td> <input type="text" name="pno" /></td>
+             </tr>
+              <tr>
+       <td> <label class="la" >Create<br> account :</label></td>   
+           <td><input id="ra1" type="radio" value="For myself" name="account">
+            <label class="la" >To contact with Friends</label><br>
+            <input type="radio" id="ra2" value="To manage my business" name="account">
+            <label class="la" >To Communicate with professors</label> </td>
+        </tr>
+              <tr>
+       <td> <label class="la" >Preferred domain : </label>
+          <td><input type="checkbox" id="d1"  value="Gmail" name="domain">
+            <label class="la" >Gmail</label><br>
+            <input type="checkbox" id="d2" value="Yahoo! Mail" name="domain">
+            <label class="la" >Yahoo! Mail</label><br>
+            <input type="checkbox" id="d3" value="Outlook" name="domain"><label class="la" >Zoho</label><br></td>
+            </tr>
+            
+        <tr>
+        <td><label class="la" >Country :</label></td>
+                <td><select name="country" id="con">
+                <option value="">---Select---</option>
+                <option value="india">India</option>
+                <option value="us">US</option>
+                <option value="spain">Spain</option>
+                <option value="German">Germany</option>
+                <option value="uk">UK</option></td>
+            </select></td>
+            </tr>
+            <tr>
+            <td></td>
+        <td><button type="button"  value="Submit" onclick="validate()">Submit
+        </button></td>
+       <td> <button type="button"  value="Reset" onclick="reset()">Reset
+       </button></td>
+        </tr>
+        
+        </table>
+        </div>
+</form>
+<br>
+<br><br><br><br><br>
+</body>
+</html>
